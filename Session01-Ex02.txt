@@ -1,0 +1,14 @@
+1. Phân tích lỗi
+Lỗi Absolute Path: Đường dẫn "C:\Users\Binh-K26\..." cố định theo ổ đĩa và tên người dùng trên máy Bình. Khi chuyển sang máy khác, cấu trúc này không tồn tại nên báo lỗi FileNotFoundError.
+
+Lỗi Escape Character: Dấu gạch chéo ngược \ trong Python bị hiểu lầm là ký tự thoát (như \a là ký tự chuông ASCII).
+
+2. Sửa lỗi
+Sử dụng đường dẫn tương đối (Relative Path) tính từ thư mục Session-02:
+
+image_path = "assets/logo.png"
+
+Hoặc viết bằng thư viện pathlib để tự động tối ưu trên mọi hệ điều hành:
+
+from pathlib import Path
+image_path = Path(file).resolve().parent / "assets" / "logo.png"
